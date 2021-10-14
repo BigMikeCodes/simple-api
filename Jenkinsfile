@@ -11,5 +11,12 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
+
+        stage('Deploy'){
+            when {branch 'master'}
+            steps {
+                sh 'Deploy to host only on master'
+            }
+        }
     }
 }

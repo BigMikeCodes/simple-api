@@ -15,7 +15,7 @@ pipeline {
         stage('Deploy'){
             when {branch 'master'}
             steps {
-                sh 'Deploy to host only on master'
+                echo 'Deploy to host only on master'
             }
         }
     }

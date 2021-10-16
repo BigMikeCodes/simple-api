@@ -25,20 +25,16 @@ pipeline {
                 stage('Create GitHub Release'){
                     steps {
                         withCredentials([usernamePassword(credentialsId: 'GH-RELEASE-USERNAME-ACCESS-KEY', passwordVariable: 'GH_TOKEN', usernameVariable: 'GH_USR_NAME')]){
-                            echo '$GH_PW'
-                            echo '$GH_USR_NAME'
-
                             sh '''
                                 ./automation/GitHubRelease.sh $GH_USR_NAME $GH_TOKEN $GH_REPO_NAME v0.0.2 
                             '''
                         }
-                        echo 'Create GH Release'
                     }
                 }
 
                 stage('Deploy to PRD server'){
                     steps{
-                        sh './automation/GitHubRe'
+                        echo 'Deploy to PRD server'
                     }
                 }
             }

@@ -19,6 +19,10 @@ pipeline {
 
                 stage('Create GitHub Release'){
                     steps{
+                        withCredentials([usernamePassword(credentialId: 'GH-RELEASE-USERNAME-ACCESS-KEY', passwordVariable: 'GH_PW', usernameVariable: 'GH_USR_NAME')]){
+                            echo '$GH_PW'
+                            echo '$GH_USR_NAME'
+                        }
                         echo 'Create GH Release'
                     }
                 }

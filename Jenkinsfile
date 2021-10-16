@@ -6,17 +6,30 @@ pipeline {
         }
     }
     stages{
+
         stage('Package'){
             steps{
                 sh 'mvn clean package'
             }
         }
 
-        stage('Deploy'){
+        stage('master only'){
             when {branch 'master'}
-            steps {
-                echo 'Deploy to host only on master'
+            stages {
+
+                stage('Create GitHub Release'){
+                    steps{
+                        echo 'Create GH Release'
+                    }
+                }
+
+                stage('Deploy to PRD server'){
+                    steps{
+                        echo "Deploy to PRD"
+                    }
+                }
             }
+           
         }
     }
 }

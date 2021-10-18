@@ -42,6 +42,12 @@ pipeline {
            
         }
 
+        stage('printenv'){
+            steps{
+                sh 'printenv'
+            }
+        }
+
         stage('feature to dev pr'){
             when {
                 changeRequest()

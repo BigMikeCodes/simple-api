@@ -12,4 +12,9 @@ public class BeerController {
         return new BeerResponse("free");
     }
 
+    @GetMapping("/least-favourite/beer")
+    public BeerResponse getLeastFavouriteBeer(){
+        return new BeerResponse("lite");
+    }
+
 }

@@ -15,7 +15,7 @@ pipeline {
 
         stage('Package'){
             steps{
-                sh 'mvn clean package'
+                echo 'mvn package (removed this until mvn cache is setup)'
             }
         }
 
@@ -42,9 +42,15 @@ pipeline {
            
         }
 
+        stage('printenv'){
+            steps{
+                sh 'printenv'
+            }
+        }
+
         stage('feature to dev pr'){
             when {
-                changeRequest target: 'dev'
+                changeRequest()
                 branch pattern: "feature/[a-zA-Z_0-9]+", comparator: "REGEXP"
             }
             stages {

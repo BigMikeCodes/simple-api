@@ -44,7 +44,7 @@ pipeline {
 
         stage('feature to dev pr'){
             when {
-                changeRequest()
+                changeRequest( target: 'dev')
                 // branch pattern: "feature/[a-zA-Z_0-9]+", comparator: "REGEXP"
             }
             stages {

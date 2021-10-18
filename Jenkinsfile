@@ -15,7 +15,7 @@ pipeline {
 
         stage('Package'){
             steps{
-                sh 'mvn clean package'
+                echo 'mvn package (removed this until mvn cache is setup)'
             }
         }
 

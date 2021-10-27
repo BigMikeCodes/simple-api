@@ -13,9 +13,14 @@ pipeline {
 
     stages{
 
+        stage('printenv'){
+            sh 'printenv'
+        }
+
         stage('Package'){
             steps{
-                sh 'mvn clean package'
+                // sh 'mvn clean package'
+                echo 'Compile'
             }
         }
 

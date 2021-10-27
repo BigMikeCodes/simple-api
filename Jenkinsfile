@@ -65,7 +65,7 @@ pipeline {
 
         stage('1'){
             when{
-                changeRequest target: 'master'
+                changeRequest target: 'dev'
             }
             stages{
 

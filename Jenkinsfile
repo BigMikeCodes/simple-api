@@ -67,7 +67,7 @@ pipeline {
             when{
                 allOf{
                     changeRequest target: 'dev'
-                    branch pattern: 'feature/[a-zA-Z_0-9]+', comparator: 'REGEXP'
+                    branch pattern: 'feature/**'
                 }
             }
             stages{

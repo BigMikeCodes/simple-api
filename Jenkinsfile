@@ -74,6 +74,12 @@ pipeline {
                         sh 'printenv'
                     }
                 }
+
+                stage('3'){
+                    steps{
+                        echo 'blah'
+                    }
+                }
             }
         }
     }

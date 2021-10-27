@@ -13,9 +13,16 @@ pipeline {
 
     stages{
 
+        stage('printenv'){
+            steps{
+                sh 'printenv'
+            }
+        }
+
         stage('Package'){
             steps{
-                sh 'mvn clean package'
+                // sh 'mvn clean package'
+                echo 'Compile'
             }
         }
 
@@ -54,7 +61,26 @@ pipeline {
                     }
                 }
             }
+        }
 
+        stage('1'){
+            when{
+                changeRequest target: 'dev', branch: 'feature/*', comparator: 'GLOB'
+            }
+            stages{
+
+                stage('2'){
+                    steps{
+                        sh 'printenv'
+                    }
+                }
+
+                stage('3'){
+                    steps{
+                        echo 'blah'
+                    }
+                }
+            }
         }
     }
 }

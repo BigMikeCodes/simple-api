@@ -65,7 +65,7 @@ pipeline {
 
         stage('1'){
             when{
-                changeRequest target: 'dev', branch: 'feature/*'
+                changeRequest target: 'dev', branch: 'feature/*', comparator 'GLOB'
             }
             stages{
 

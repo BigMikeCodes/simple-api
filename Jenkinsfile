@@ -61,7 +61,18 @@ pipeline {
                     }
                 }
             }
+        }
 
+        stage('1'){
+            when{
+                changeRequest target: 'master'
+            }
+            stages{
+
+                stage('2'){
+                    sh 'printenv'
+                }
+            }
         }
     }
 }

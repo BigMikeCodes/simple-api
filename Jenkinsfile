@@ -65,10 +65,7 @@ pipeline {
 
         stage('1'){
             when{
-                allOf{
-                    changeRequest target: 'dev'
-                    // branch pattern: 'feature/**'
-                }
+                changeRequest target: 'dev'
             }
             stages{
 

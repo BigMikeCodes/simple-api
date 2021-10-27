@@ -14,7 +14,9 @@ pipeline {
     stages{
 
         stage('printenv'){
-            sh 'printenv'
+            steps{
+                sh 'printenv'
+            }
         }
 
         stage('Package'){

@@ -70,7 +70,9 @@ pipeline {
             stages{
 
                 stage('2'){
-                    sh 'printenv'
+                    steps{
+                        sh 'printenv'
+                    }
                 }
             }
         }
